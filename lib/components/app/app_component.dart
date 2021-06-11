@@ -20,7 +20,6 @@ import '../../config/routes.dart';
 class AppComponent extends StatefulWidget {
   @override
   State createState() {
-    
     return AppComponentState();
   }
 }
@@ -31,38 +30,18 @@ class AppComponentState extends State<AppComponent> {
     Routes.configureRoutes(router);
     Application.router = router;
   }
-  
 
   @override
   Widget build(BuildContext context) {
-  List<Creation> creations = new CreationJsonReader().init().creations;
-      
-    return MaterialApp(
-          title: 'Made by Bas de Vaan',
-          theme: ThemeData(
-            primarySwatch: Colors.blue,
-          ),
-          home: Scaffold(
-          appBar: AppBar(
-            title: Text("Made By Bas de Vaan"),
-          ),
-          body: Center(
-              child: CustomScrollView(
-            primary: false,
-            slivers: <Widget>[
-              SliverPadding(
-                padding: const EdgeInsets.all(20),
-                sliver: SliverGrid.count(
-                  crossAxisSpacing: 10,
-                  mainAxisSpacing: 10,
-                  crossAxisCount: ((MediaQuery.of(context).size.width - MediaQuery.of(context).size.width % 300)/300).truncate(),
-                  children: creations.map((c) {
-                    return CreationCard(creation: c);
-                  }).toList(),
-                ),
-              ),
-            ],
-          ))),
+    final app = MaterialApp(
+      title: 'Made by Bas de Vaan',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      onGenerateRoute: Application.router.generator,
     );
+//    print("initial route = ${app.initialRoute}");
+    return app;
   }
 }

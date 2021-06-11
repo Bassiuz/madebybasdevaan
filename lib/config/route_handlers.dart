@@ -23,8 +23,6 @@ var rootHandler = Handler(
 var creationHandler = Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
   List<String> title = params['title'];
-  print(params);
-  print(title[0]);
   return CreationDetailScreen(
     creation: new CreationJsonReader().init().getCreationForTitle(title[0]),
   );

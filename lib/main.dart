@@ -2,14 +2,14 @@ import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:made_by_basdevaan/helpers/creation_json_reader.dart';
 
+import 'components/app/app_component.dart';
 import 'components/model/creation.dart';
 import 'components/widgets/creation_card.dart';
 import 'config/application.dart';
 import 'config/routes.dart';
-import 'helpers/creation_builder.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(AppComponent());
 }
 
 class MyApp extends StatelessWidget {
@@ -18,10 +18,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Made by Bas de Vaan',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
       home: MyHomePage(title: 'Made by Bas de Vaan'),
+      onGenerateRoute: Application.router.generator,
     );
   }
 }
