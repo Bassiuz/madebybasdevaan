@@ -1,4 +1,4 @@
-import 'package:made_by_basdevaan/components/model/creation.dart';
+import '../components/model/creation.dart';
 import 'dart:convert';
 import 'creations.dart';
 

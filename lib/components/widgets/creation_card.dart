@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:made_by_basdevaan/config/application.dart';
+import '../../config/application.dart';
 import '../model/creation.dart';
 
 class CreationCard extends StatelessWidget {

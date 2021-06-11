@@ -1,6 +1,6 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
-import 'package:made_by_basdevaan/helpers/creation_json_reader.dart';
+import 'helpers/creation_json_reader.dart';
 
 import 'components/app/app_component.dart';
 import 'components/model/creation.dart';

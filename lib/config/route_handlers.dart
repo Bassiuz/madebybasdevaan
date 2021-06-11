@@ -6,7 +6,7 @@
  * Copyright (c) 2019 Yakka, LLC. All rights reserved.
  * See LICENSE for distribution and usage details.
  */
-import 'package:made_by_basdevaan/helpers/creation_json_reader.dart';
+import '../helpers/creation_json_reader.dart';
 
 import '../components/widgets/creation_detail_screen.dart';
 
