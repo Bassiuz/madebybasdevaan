@@ -1,8 +1,11 @@
+import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
-import 'package:madebybasdevaan/widgets/creation_card.dart';
 
-import 'creation_builder.dart';
-import 'model/creation.dart';
+import 'components/model/creation.dart';
+import 'components/widgets/creation_card.dart';
+import 'config/application.dart';
+import 'config/routes.dart';
+import 'helpers/creation_builder.dart';
 
 void main() {
   runApp(MyApp());
@@ -22,17 +25,30 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatelessWidget {
-  MyHomePage({Key? key, required this.title}) : super(key: key);
+class MyHomePage extends StatefulWidget {
+  MyHomePage({@required this.title}) : super();
   final String title;
+
+
+  
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  _MyHomePageState() {
+    final router = FluroRouter();
+    Routes.configureRoutes(router);
+    Application.router = router;
+  }
 
   @override
   Widget build(BuildContext context) {
     final List<Creation> creations = buildCreations();
-      
+
     return Scaffold(
         appBar: AppBar(
-          title: Text(title),
+          title: Text(widget.title),
         ),
         body: Center(
             child: CustomScrollView(
@@ -43,7 +59,10 @@ class MyHomePage extends StatelessWidget {
               sliver: SliverGrid.count(
                 crossAxisSpacing: 10,
                 mainAxisSpacing: 10,
-                crossAxisCount: ((MediaQuery.of(context).size.width - MediaQuery.of(context).size.width % 300)/300).truncate(),
+                crossAxisCount: ((MediaQuery.of(context).size.width -
+                            MediaQuery.of(context).size.width % 300) /
+                        300)
+                    .truncate(),
                 children: creations.map((c) {
                   return CreationCard(creation: c);
                 }).toList(),

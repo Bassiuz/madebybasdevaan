@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:madebybasdevaan/model/creation.dart';
+import '../model/creation.dart';
 
 class CreationDetailScreen extends StatelessWidget {
-  CreationDetailScreen({Key? key, required this.creation}) : super(key: key);
+  CreationDetailScreen({@required this.creation}) : super();
   final Creation creation;
 
   @override

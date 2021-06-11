@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:madebybasdevaan/widgets/creation_detail_screen.dart';
+import 'package:made_by_basdevaan/config/application.dart';
 import '../model/creation.dart';
 
 class CreationCard extends StatelessWidget {
   final Creation creation;
 
-  CreationCard({required this.creation});
+  CreationCard({@required this.creation});
 
   void selectCreation(context) {
-    Navigator.of(context).push(MaterialPageRoute(builder: (_) {
-      return CreationDetailScreen(creation: creation);
-    }));
+      Application.router.navigateTo(context, "/creation?message=Hello");
+    //Navigator.of(context).push(MaterialPageRoute(builder: (_) {
+    //  return CreationDetailScreen(creation: creation);
+    //}));
   }
 
   @override
