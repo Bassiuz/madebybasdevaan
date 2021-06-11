@@ -7,7 +7,12 @@ class Creation {
   final String description;
   final String content;
   final String imageUrl;
+  final String key;
 
-  Creation(
-      {@required this.title, @required this.description, @required this.content, @required this.imageUrl});
+  Creation({
+      @required this.key,
+      @required this.title,
+      @required this.description,
+      @required this.content,
+      @required this.imageUrl});
 }

@@ -8,7 +8,7 @@ class CreationCard extends StatelessWidget {
   CreationCard({@required this.creation});
 
   void selectCreation(context) {
-      Application.router.navigateTo(context, "/creation?message=Hello");
+      Application.router.navigateTo(context, "/creation?title=" + creation.key);
     //Navigator.of(context).push(MaterialPageRoute(builder: (_) {
     //  return CreationDetailScreen(creation: creation);
     //}));

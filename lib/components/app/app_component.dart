@@ -7,6 +7,7 @@
  * See LICENSE for distribution and usage details.
  */
 import 'package:fluro/fluro.dart';
+import 'package:made_by_basdevaan/helpers/creation_json_reader.dart';
 
 import '../../components/model/creation.dart';
 import '../../components/widgets/creation_card.dart';
@@ -34,7 +35,7 @@ class AppComponentState extends State<AppComponent> {
 
   @override
   Widget build(BuildContext context) {
-    final List<Creation> creations = buildCreations();
+  List<Creation> creations = new CreationJsonReader().init().creations;
       
     return MaterialApp(
           title: 'Made by Bas de Vaan',

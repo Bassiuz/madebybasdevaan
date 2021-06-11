@@ -1,5 +1,6 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
+import 'package:made_by_basdevaan/helpers/creation_json_reader.dart';
 
 import 'components/model/creation.dart';
 import 'components/widgets/creation_card.dart';
@@ -29,13 +30,13 @@ class MyHomePage extends StatefulWidget {
   MyHomePage({@required this.title}) : super();
   final String title;
 
-
-  
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  List<Creation> creations = new CreationJsonReader().init().creations;
+
   _MyHomePageState() {
     final router = FluroRouter();
     Routes.configureRoutes(router);
@@ -43,9 +44,12 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    final List<Creation> creations = buildCreations();
+  initState() {
+    super.initState();
+  }
 
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           title: Text(widget.title),
