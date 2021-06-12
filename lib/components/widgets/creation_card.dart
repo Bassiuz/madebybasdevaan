@@ -23,11 +23,28 @@ class CreationCard extends StatelessWidget {
           child: Stack(children: [
         Positioned(
             child: Column(
-          children: [new Image(
-                        fit: BoxFit.fitWidth,
-                        alignment: FractionalOffset.topCenter,
-                        image: new NetworkImage(creation.imageUrl),
-                      ),Text(creation.title), Text(creation.description)],
+          children: [
+            new AspectRatio(
+          aspectRatio: 2 / 1,
+          child: new Container(
+            decoration: new BoxDecoration(
+              image: new DecorationImage(
+                fit: BoxFit.fitHeight,
+                alignment: FractionalOffset.topCenter,
+                image: new NetworkImage(creation.imageUrl),
+              )
+            ),
+          ),
+        ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(creation.title,
+              style: Theme.of(context).textTheme.headline6,),
+            ), 
+            Padding(
+              padding: const EdgeInsets.fromLTRB(8,0,8,8),
+              child: Text(creation.description),
+            )],
         ))
       ])),
     );

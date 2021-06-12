@@ -1,6 +1,6 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
-import 'helpers/creation_json_reader.dart';
+import 'helpers/creation_builder.dart';
 
 import 'components/app/app_component.dart';
 import 'components/model/creation.dart';
@@ -37,7 +37,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  List<Creation> creations = new CreationJsonReader().init().creations;
+  List<Creation> creations = buildCreations();
 
   _MyHomePageState() {
     final router = FluroRouter();

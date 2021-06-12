@@ -6,8 +6,7 @@
  * Copyright (c) 2019 Yakka, LLC. All rights reserved.
  * See LICENSE for distribution and usage details.
  */
-import '../helpers/creation_json_reader.dart';
-
+import 'package:madebybasdevaan/helpers/creation_builder.dart';
 import '../components/widgets/creation_detail_screen.dart';
 
 import 'package:fluro/fluro.dart';
@@ -24,6 +23,6 @@ var creationHandler = Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
   List<String> title = params['title'];
   return CreationDetailScreen(
-    creation: new CreationJsonReader().init().getCreationForTitle(title[0]),
+    creation: getCreationForTitle(title[0]),
   );
 });

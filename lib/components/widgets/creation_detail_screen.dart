@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 import '../model/creation.dart';
 
 class CreationDetailScreen extends StatelessWidget {
@@ -14,8 +15,24 @@ class CreationDetailScreen extends StatelessWidget {
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [Text(creation.description), Text(creation.content)],
+          children: [
+            new AspectRatio(
+          aspectRatio: 4 / 1,
+          child: new Container(
+            decoration: new BoxDecoration(
+              image: new DecorationImage(
+                fit: BoxFit.fitWidth,
+                alignment: FractionalOffset.topCenter,
+                image: new NetworkImage(creation.imageUrl),
+              )
+            ),
+          ),
+        ), 
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: MarkdownBody(data: creation.content),
+                        )
+                        ],
         ),
       ),
     );
