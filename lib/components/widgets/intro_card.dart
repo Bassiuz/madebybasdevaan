@@ -21,7 +21,7 @@ class IntroCard extends StatelessWidget {
                       image: new DecorationImage(
                     fit: BoxFit.fitHeight,
                     alignment: FractionalOffset.topCenter,
-                    image: AssetImage('graphics/bas.jpg'),
+                    image: new NetworkImage('https://bassiuz.github.io/madebybasdevaan/assets/assets/graphics/bas.jpg'),
                   )),
                 ),
               ),
