@@ -1,5 +1,6 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
+import 'components/widgets/intro_card.dart';
 import 'helpers/creation_builder.dart';
 
 import 'components/app/app_component.dart';
@@ -60,6 +61,11 @@ class _MyHomePageState extends State<MyHomePage> {
             child: CustomScrollView(
           primary: false,
           slivers: <Widget>[
+            SliverPadding(
+              padding: const EdgeInsets.fromLTRB(20,20,20, 0),
+              sliver:SliverToBoxAdapter( 
+              child: Container(child: IntroCard()),
+            )),
             SliverPadding(
               padding: const EdgeInsets.all(20),
               sliver: SliverGrid.count(
